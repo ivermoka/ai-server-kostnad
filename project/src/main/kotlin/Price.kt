@@ -14,8 +14,8 @@ data class PriceInfo(
 )
 
 class Price(private val date: String) {
-    val nokPerKWh: Double
-    val eurPerKWh: Double
+    val nokPerKWh: List<Double>
+    val eurPerKWh: List<Double>
 
     init {
         val url = URL("https://www.hvakosterstrommen.no/api/v1/prices/2024/${date}_NO1.json")
@@ -34,8 +34,8 @@ class Price(private val date: String) {
                 val json = Json { ignoreUnknownKeys = true }
                 val priceList = json.decodeFromString<List<PriceInfo>>(inline)
 
-                nokPerKWh = priceList.first().nokPerkWh
-                eurPerKWh = priceList.first().eurPerkWh
+                nokPerKWh = priceList.map { it.nokPerkWh }
+                eurPerKWh = priceList.map { it.eurPerkWh }
             }
         } catch (e: Exception) {
             println("An error occurred: ${e.message}")

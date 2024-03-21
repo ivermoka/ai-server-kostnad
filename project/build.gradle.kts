@@ -12,7 +12,6 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
-    implementation project(":kjob-core")
 }
 
 tasks.test {
