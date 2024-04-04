@@ -22,5 +22,5 @@
     {"hour": 20, "watt_avg": 480},
     {"hour": 21, "watt_avg": 430},
     {"hour": 22, "watt_avg": 370},
-    {"hour": 23, "watt_avg": 320}
+    {"hour": 23, "watt_avg": 900}
 ]

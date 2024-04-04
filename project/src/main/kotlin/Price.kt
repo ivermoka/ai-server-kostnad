@@ -13,12 +13,12 @@ data class PriceInfo(
     @SerialName("time_start") val time_start: String
 )
 
-class Price(private val date: String) {
+class Price(private val year: Int, private val date: String) {
     val nokPerKWh: List<Double>
     val eurPerKWh: List<Double>
 
     init {
-        val url = URL("https://www.hvakosterstrommen.no/api/v1/prices/2024/${date}_NO1.json")
+        val url = URL("https://www.hvakosterstrommen.no/api/v1/prices/${year}/${date}_NO1.json")
 
         try {
             val conn = url.openConnection() as HttpURLConnection
